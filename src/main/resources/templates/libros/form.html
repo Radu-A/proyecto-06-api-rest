@@ -20,42 +20,30 @@
 
 			<section class="col-11 col-lg-8">
 				<div>
-					<a type="button" class="btn btn-warning" th:href="@{'/vehiculos'}">← Volver al listado</a>
+					<a type="button" class="btn btn-warning" th:href="@{'/libros'}">← Volver al listado</a>
 				</div>
 				<form class="my-5" 
-					th:action="@{'/vehiculos/' + ${accion}}" 
-					th:object="${vehiculo}" 
+					th:action="@{'/libros/' + ${accion}}" 
+					th:object="${libro}" 
 					method='POST'>
 					
 					<input type="hidden" th:field="*{id}" />
 					<div class="form-group">
-						<label>Marca</label>
-						<input class="form-control" th:field="*{marca}" th:errorclass="campo-error">
-						<p th:errors="*{marca}" class="error"></p>
+						<label>Título</label>
+						<input class="form-control" th:field="*{titulo}" th:errorclass="campo-error">
+						<p th:errors="*{titulo}" class="error"></p>
 					</div>
 					<div class="form-group">
-						<label>Modelo</label> 
+						<label>Autor</label> 
 						<input class="form-control" 
-						th:field="*{modelo}" th:errorclass="campo-error">
-						<p th:errors="*{modelo}" class="error"></p>
+						th:field="*{autor}" th:errorclass="campo-error">
+						<p th:errors="*{autor}" class="error"></p>
 					</div>
 					<div class="form-group">
-						<label>Matricula</label> 
+						<label>Páginas</label> 
 						<input class="form-control" 
-						th:field="*{matricula}" th:errorclass="campo-error">
-						<p th:errors="*{matricula}" class="error"></p>
-					</div>
-					<div class="form-group">
-						<label>Año</label> 
-						<input class="form-control" type="number" 
-						th:field="*{anio}" th:errorclass="campo-error">
-						<p th:errors="*{anio}" class="error"></p>
-					</div>
-					<div class="form-group">
-						<label>Kilómetros</label> 
-						<input class="form-control" type="number" 
-						th:field="*{kilometros}" th:errorclass="campo-error">
-						<p th:errors="*{kilometros}" class="error"></p>
+						th:field="*{numeroPaginas}" th:errorclass="campo-error">
+						<p th:errors="*{numeroPaginas}" class="error"></p>
 					</div>
 					<br>
 					<button type="submit" class="btn btn-primary" th:text="${accion}"></button>

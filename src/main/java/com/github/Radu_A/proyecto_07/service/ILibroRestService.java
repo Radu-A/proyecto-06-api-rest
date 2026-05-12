@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.github.Radu_A.proyecto_07.model.Libro;
 
-public interface ILibrosService {
+public interface ILibroRestService {
 	
 	List<Libro> findAll();
 	Libro findById(Long id);

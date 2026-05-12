@@ -9,7 +9,7 @@ import com.github.Radu_A.proyecto_07.model.Libro;
 import com.github.Radu_A.proyecto_07.repository.LibrosRepository;
 
 @Service
-public class LibrosServiceImpl implements ILibrosService {
+public class LibroRestServiceImpl implements ILibroRestService {
 	
 	@Autowired
 	private LibrosRepository librosRepository;

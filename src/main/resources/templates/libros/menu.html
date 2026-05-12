@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title th:text="${titulo}"></title>
+<link href="/styles/style.css" rel="stylesheet" />
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+	crossorigin="anonymous">
+</head>
+
+<body>
+	<main class="container pb-15">
+		<div class="row justify-content-center gap-5">
+
+			<section class="col-11 col-lg-10">
+				<h1 th:text="${cabecera.toUpperCase}" class="text-center"></h1>
+			</section>
+
+			<section class="col-11 col-lg-10">
+				<a th:href="@{'/libros/nuevo'}" type="button" class="btn btn-primary">Crear nuevo</a>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>TÍTULO</th>
+							<th>AUTOR</th>
+							<th>PÁGINAS</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="libro : ${libros}">
+							<td th:text="${libro.id}"></td>
+							<td th:text="${libro.titulo}"></td>
+							<td th:text="${libro.autor}"></td>
+							<td th:text="${libro.numeroPaginas}"></td>
+							<td>
+								<div class="btn-group" role="group"
+									aria-label="Basic outlined example">
+									<a th:href="@{'/libros/' + ${libro.id}}"
+										th:text="${accion1}" type="button" class="btn btn-outline-primary"></a><a
+										th:href="@{'/libros/borrar/' + ${libro.id}}"
+										th:text="${accion2}" type="button" class="btn btn-outline-primary"></a><a
+										th:href="@{'/libros/form/' + ${libro.id}}"
+										th:text="${accion3}" type="button" class="btn btn-outline-primary"></a>
+								</div>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+		</div>
+	</main>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>

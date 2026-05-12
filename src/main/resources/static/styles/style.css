@@ -44,3 +44,16 @@ td {
 .filtro {
 	font-size: 0.8rem;
 }
+
+/* FORM */
+
+.campo-error {
+	border: 1px solid red;
+}
+
+.error {
+	color: red;
+	display: block;
+	font-size: 0.85em;
+	margin-bottom: 6px;	
+}

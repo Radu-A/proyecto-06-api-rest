@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.github.Radu_A.proyecto_07.dto.Vehiculo;
+import com.github.Radu_A.proyecto_07.dto.VehiculoDto;
 
 @Service
 public class VehiculoService {
@@ -14,19 +14,19 @@ public class VehiculoService {
 	@Autowired
 	private RestTemplate restTemplate;
 	
-	public Vehiculo getVehiculo(int id) {
-		return restTemplate.getForObject(baseUrl + id, Vehiculo.class);
+	public VehiculoDto getVehiculo(int id) {
+		return restTemplate.getForObject(baseUrl + id, VehiculoDto.class);
 	}
 	
-	public Vehiculo[] getVehiculoArray() {
-		return restTemplate.getForObject(baseUrl, Vehiculo[].class);
+	public VehiculoDto[] getVehiculoArray() {
+		return restTemplate.getForObject(baseUrl, VehiculoDto[].class);
 	}
 	
-	public Vehiculo postForObject(Vehiculo vehiculo) {
-		return restTemplate.postForObject(baseUrl, vehiculo, Vehiculo.class);
+	public VehiculoDto postForObject(VehiculoDto vehiculo) {
+		return restTemplate.postForObject(baseUrl, vehiculo, VehiculoDto.class);
 	}
 	
-	public void put(Vehiculo vehiculo) {
+	public void put(VehiculoDto vehiculo) {
 		restTemplate.put(baseUrl + vehiculo.getId(), vehiculo);
 	}
 	

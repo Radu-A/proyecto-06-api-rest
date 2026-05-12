@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.github.Radu_A.proyecto_07.model.Libro;
-import com.github.Radu_A.proyecto_07.service.LibrosServiceImpl;
+import com.github.Radu_A.proyecto_07.service.LibroRestServiceImpl;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -21,10 +21,10 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 @RestController
 @RequestMapping("/api/libros")
 @Tag(name = "libros", description = "API para la gestión de libros en la biblioteca")
-public class LibrosRestController {
+public class LibroRestController {
 	
 	@Autowired
-	private LibrosServiceImpl libroService;
+	private LibroRestServiceImpl libroService;
 	
 	@GetMapping("")
 	@Operation(summary = "Obtener todos los libros", description = "Retorna una lista de todos los libros disponibles")
