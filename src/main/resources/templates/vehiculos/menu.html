@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title th:text="${titulo}"></title>
+<link href="/styles/style.css" rel="stylesheet" />
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+	crossorigin="anonymous">
+</head>
+
+<body>
+	<main>
+		<section class="main-header">
+			<h1 th:text="${cabecera}" class="text-center"></h1>
+		</section>
+
+		<section>
+			<article class="nuevo-article">
+				<div class="combinacion-div">
+					<div th:each="vehiculo : ${vehiculos}">
+						<a th:href="@{'/libros/filtro/' + ${genero}}" th:text="${genero}" class="filtro"></a>
+					</div>
+					<div>
+						<a th:href="@{'/libros/menu'}" class="filtro">QUITAR FILTRO</a>
+					</div>
+				</div>
+				<a th:href="@{'/libros/nuevo'}" type="button"
+					class="btn btn-primary">Crear nuevo</a>
+			</article>
+			<table>
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>TITULO</th>
+						<th>AUTOR</th>
+						<th>EJEMPLARES</th>
+						<th>GENERO</th>
+						<th colspan="4">ACCIONES</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="libro : ${libros}">
+						<td th:text="${libro.id}"></td>
+						<td th:text="${libro.titulo}"></td>
+						<td th:text="${libro.autor}"></td>
+						<td th:text="${libro.ejemplares}"></td>
+						<td th:text="${libro.genero}"></td>
+						<td><a th:href="@{'/libros/detalles/' + ${libro.id}}"
+							th:text="${accion1}" type="button" class="btn btn-primary"></a></td>
+						<td><a th:href="@{'/libros/borrar/' + ${libro.id}}"
+							th:text="${accion2}" type="button" class="btn btn-danger"></a></td>
+						<td><a th:href="@{'/libros/form/' + ${libro.id}}"
+							th:text="${accion3}" type="button" class="btn btn-primary"></a></td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+
+
+	</main>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>
