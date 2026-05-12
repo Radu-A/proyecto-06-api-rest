@@ -13,36 +13,41 @@
 </head>
 
 <body>
-	<main>
-		<section class="main-header">
-			<h1 th:text="${cabecera}"></h1>
-		</section>
+	<main class="container">
+		<div class="row justify-content-center gap-5">
+			<section class="col-11 col-lg-8">
+				<h1 th:text="${cabecera}"></h1>
+				<div class="detalles-links">
+					<a th:href="@{'/vehiculos'}" type="button" class="btn btn-warning">← Volver</a> <a
+						th:href="@{'/vehiculos/form/' + ${vehiculo.id}}" type="button" class="btn btn-primary">Editar</a>
+				</div>
+			</section>
 
-		<section>
-			<ul>
-				<li>
-					<p>
-						Id: <span th:text="${vehiculo.id}"></span>
-					</p>
-				</li>
-				<li>
-					<p>
-						Marca: <span th:text="${vehiculo.marca}"></span>
-					</p>
-				</li>
-				<li>
-					<p>
-						Modelo: <span th:text="${vehiculo.modelo}"></span>
-					</p>
-				</li>
-				<li>
-					<p>
-						Anio: <span th:text="${vehiculo.anio}"></span>
-					</p>
-				</li>
-			</ul>
-		</section>
-
+			<section class="col-11 col-lg-8">
+				<ul class="list-group">
+					<li class="list-group-item">
+						<p>
+							Id: <span th:text="${vehiculo.id}"></span>
+						</p>
+					</li>
+					<li class="list-group-item">
+						<p>
+							Marca: <span th:text="${vehiculo.marca}"></span>
+						</p>
+					</li>
+					<li class="list-group-item">
+						<p>
+							Modelo: <span th:text="${vehiculo.modelo}"></span>
+						</p>
+					</li>
+					<li class="list-group-item">
+						<p>
+							Año: <span th:text="${vehiculo.anio}"></span>
+						</p>
+					</li>
+				</ul>
+			</section>
+		</div>
 
 	</main>
 

@@ -1,0 +1,46 @@
+
+main {
+	padding-bottom: 5rem ;
+}
+
+h1 {
+	padding: 2rem 0;
+}
+
+th,
+td {
+	padding: 5px;
+}
+
+/* LOTO */
+
+.combinacion-div {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	gap: 5px;
+}
+
+.bola {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 5rem;
+	height: 5rem;
+}
+
+/* LIBROS */
+
+.detalles-links {
+	display: flex;
+	justify-content: space-between;
+}
+
+.nuevo-article {
+	display: flex;
+	justify-content: space-between;
+}
+
+.filtro {
+	font-size: 0.8rem;
+}

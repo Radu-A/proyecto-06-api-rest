@@ -13,54 +13,50 @@
 </head>
 
 <body>
-	<main>
-		<section class="main-header">
-			<h1 th:text="${cabecera}" class="text-center"></h1>
-		</section>
+	<main class="container pb-15">
+		<div class="row justify-content-center gap-5">
 
-		<section>
-			<article class="nuevo-article">
-				<div class="combinacion-div">
-					<div th:each="vehiculo : ${vehiculos}">
-						<a th:href="@{'/libros/filtro/' + ${genero}}" th:text="${genero}" class="filtro"></a>
-					</div>
-					<div>
-						<a th:href="@{'/libros/menu'}" class="filtro">QUITAR FILTRO</a>
-					</div>
-				</div>
-				<a th:href="@{'/libros/nuevo'}" type="button"
-					class="btn btn-primary">Crear nuevo</a>
-			</article>
-			<table>
-				<thead>
-					<tr>
-						<th>ID</th>
-						<th>TITULO</th>
-						<th>AUTOR</th>
-						<th>EJEMPLARES</th>
-						<th>GENERO</th>
-						<th colspan="4">ACCIONES</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr th:each="libro : ${libros}">
-						<td th:text="${libro.id}"></td>
-						<td th:text="${libro.titulo}"></td>
-						<td th:text="${libro.autor}"></td>
-						<td th:text="${libro.ejemplares}"></td>
-						<td th:text="${libro.genero}"></td>
-						<td><a th:href="@{'/libros/detalles/' + ${libro.id}}"
-							th:text="${accion1}" type="button" class="btn btn-primary"></a></td>
-						<td><a th:href="@{'/libros/borrar/' + ${libro.id}}"
-							th:text="${accion2}" type="button" class="btn btn-danger"></a></td>
-						<td><a th:href="@{'/libros/form/' + ${libro.id}}"
-							th:text="${accion3}" type="button" class="btn btn-primary"></a></td>
-					</tr>
-				</tbody>
-			</table>
-		</section>
+			<section class="col-11 col-lg-10">
+				<h1 th:text="${cabecera.toUpperCase}" class="text-center"></h1>
+			</section>
 
-
+			<section class="col-11 col-lg-10">
+				<a th:href="@{'/vehiculos/nuevo'}" type="button" class="btn btn-primary">Crear nuevo</a>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>MARCA</th>
+							<th>MODELO</th>
+							<th>MATRICULA</th>
+							<th>AÑO</th>
+							<th>KILOMETROS</th>
+							<th>ACCIONES</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="vehiculo : ${vehiculos}">
+							<td th:text="${vehiculo.id}"></td>
+							<td th:text="${vehiculo.marca}"></td>
+							<td th:text="${vehiculo.modelo}"></td>
+							<td th:text="${vehiculo.matricula}"></td>
+							<td th:text="${vehiculo.anio}"></td>
+							<td th:text="${vehiculo.kilometros}"></td>
+							<td>
+								<div class="btn-group" role="group"
+									aria-label="Basic outlined example">
+									<a th:href="@{'/vehiculos/' + ${vehiculo.id}}"
+										th:text="${accion1}" type="button" class="btn btn-outline-primary"></a><a
+										th:href="@{'/vehiculos/borrar/' + ${vehiculo.id}}"
+										th:text="${accion2}" type="button" class="btn btn-outline-primary"></a><a
+										th:href="@{'/vehiculos/form/' + ${vehiculo.id}}"
+										th:text="${accion3}" type="button" class="btn btn-outline-primary"></a>
+								</div>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+		</div>
 	</main>
 
 	<script

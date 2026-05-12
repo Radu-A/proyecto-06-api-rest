@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title th:text="${titulo}"></title>
+	<link rel="icon" type="image/x-icon" th:href="@{/img/logo-sm.jpg}">
+	<link href="/styles/style.css" rel="stylesheet" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body>
+	<main class="container">
+		<div class="row justify-content-center gap-5">
+
+			<section class="col-11 col-lg-8">
+				<h1 th:text="${cabecera.toUpperCase}" class="text-center"></h1>
+			</section>
+
+			<section class="col-11 col-lg-8">
+				<div>
+					<a type="button" class="btn btn-warning" th:href="@{'/vehiculos'}">← Volver al listado</a>
+				</div>
+				<form class="my-5" th:action="@{'/vehiculos/' + ${accion}}" th:object="${vehiculo}" method='POST'>
+					<input type="hidden" th:field="*{id}" />
+					<div class="form-group">
+						<label>Marca</label> <input class="form-control" th:field="*{marca}">
+					</div>
+					<div class="form-group">
+						<label>Modelo</label> <input class="form-control" th:field="*{modelo}">
+					</div>
+					<div class="form-group">
+						<label>Matricula</label> <input class="form-control" th:field="*{matricula}">
+					</div>
+					<div class="form-group">
+						<label>Año</label> <input class="form-control" th:field="*{anio}">
+					</div>
+					<div class="form-group">
+						<label>Kilometros</label> <input class="form-control" th:field="*{kilometros}">
+					</div>
+					<br>
+					<button type="submit" class="btn btn-primary" th:text="${accion}"></button>
+				</form>
+			</section>
+		</div>
+	</main>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>
